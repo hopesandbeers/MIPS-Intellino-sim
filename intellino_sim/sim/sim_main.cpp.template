@@ -1,0 +1,131 @@
+#include <stdint.h>
+#include <stdlib.h>
+#include <iostream>
+#include "verilated.h"
+#include "verilated_vcd_c.h"
+#include "Vtop_neuro.h"
+#include <time.h>
+
+#define VECTOR_LENGTH <0>
+
+#define SIM_TICK() \
+    top->eval(); \
+    tfp->dump(Verilated::time())
+#define SIM_TIME(t) \
+    Verilated::timeInc(t)
+
+int main(int argc, char** argv, char** env) {
+    // Prevent unused variable warnings
+    if (false && argc && argv && env) {}
+
+    // Construct a VerilatedContext to hold simulation time, etc.
+    VerilatedContext* contextp = new VerilatedContext;
+
+    // Create logs/ directory in case we have traces to put under it
+    Verilated::mkdir("logs");
+    // Set debug level, 0 is off, 9 is highest presently used
+    // May be overridden by commandArgs argument parsing
+    Verilated::debug(0);
+
+    // Randomization reset policy
+    // May be overridden by commandArgs argument parsing
+    Verilated::randReset(2);
+
+    // Verilator must compute traced signals
+    Verilated::traceEverOn(true);
+
+    // Construct the Verilated model, from Vtop.h generated from Verilating "top_neuro.v"
+    Verilated::commandArgs(argc, argv);
+
+    // Construct the Verilated model, from Vtop.h generated from Verilating "top_neuro.v"
+    Vtop_neuro* top = new Vtop_neuro{contextp};
+
+    // Construct the VCD dump object
+    VerilatedVcdC* tfp = new VerilatedVcdC;
+    top->trace(tfp, 99);
+    tfp->open("logs/wave.vcd");
+
+    //// Start simulation
+    std::cout << "================================" << std::endl;
+    std::cout << "======= Start Simulation =======" << std::endl;
+    std::cout << "================================" << std::endl;
+
+    // Input signal initialization and resetting design
+    std::cout << "Reseting top module...." << std::endl;
+    top->clk = 1; top->reset_n = 1;
+    top->sck = 1;
+    top->mosi = 1;
+    top->cs = 1;
+    SIM_TICK(); SIM_TIME(1);
+    top->reset_n = 0;
+    SIM_TICK(); SIM_TIME(9);
+    top->clk = 0; top->reset_n = 1;
+    SIM_TICK(); SIM_TIME(10);
+
+    clock_t elapsed_time = clock();
+
+    // Generate data
+    uint8_t datastream[VECTOR_LENGTH + 5];
+    datastream[0] = 0x60;
+    datastream[1] = (VECTOR_LENGTH-1) >> 8;
+    datastream[2] = (VECTOR_LENGTH-1) & 0xFF;
+    for (int i = 3; i < VECTOR_LENGTH + 5; i++)
+        datastream[i] = rand();
+
+    // Simulates for 125ns * 8 * (1+2+VECTOR_LENGTH+2)
+    uint8_t bit_idx = 0;
+    uint8_t byte_idx = 0;
+    uint8_t data = datastream[0];
+    top->cs = 0;
+    for (uint32_t i = 0; i < 125 * 8 * (VECTOR_LENGTH * 2); i++) {
+        if (i % 10 == 0) {
+            top->clk = !top->clk;
+            SIM_TICK();
+        }
+        if (i % 125 == 0) {
+            top->sck = 0;
+            top->mosi = (data >> (7 - bit_idx)) & 0x01;
+            if (bit_idx == 7) {
+                bit_idx = 0;
+                data = datastream[++byte_idx];
+            }
+            else
+                bit_idx += 1;
+
+        }
+        if (i % 125 == 62) {
+            top->sck = 1;
+        }
+        SIM_TIME(1);
+    }
+    /*
+    while (!Verilated::gotFinish()) {
+        // Nonblocking assignments
+        top->clk = ~top->clk;
+        SIM_TICK(); SIM_TIME(5);
+        // Blocking assignments
+
+        // Read outputs
+        VL_PRINTF("[%" PRId64 "] clk=%x reset_n=%x \n",
+                  Verilated::time(), top->clk, top->reset_n);
+    }
+    */
+
+    //// Simulation ends
+    elapsed_time = clock() - elapsed_time;
+
+    std::cout << "================================" << std::endl;
+    std::cout << "======= Simulation Ended =======" << std::endl;
+    std::cout << "================================" << std::endl;
+    std::cout << "Elapsed time: " << (double)elapsed_time / (CLOCKS_PER_SEC<<2) << std::endl;
+
+    // Final model cleanup
+    top->final();
+
+    //// Coverage analysis
+    //contextp->coveragep()->write("logs/coverage.dat");
+
+    delete top;
+    delete contextp;
+    return 0;
+}

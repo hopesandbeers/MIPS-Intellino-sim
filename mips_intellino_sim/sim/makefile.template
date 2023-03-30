@@ -1,0 +1,48 @@
+CONFIG_FILE = config.vlt
+RTL_FILES = ../rtl/top.v \
+			../rtl/jtag/*.v \
+			../rtl/mips_core/*.v \
+			../rtl/mips_core/alu/*.v \
+			../rtl/coprocessor0/*.v \
+			../rtl/coprocessor1/*.v \
+			../rtl/coprocessor1/pau/*.v \
+			../rtl/coprocessor2/*.v \
+			../rtl/coprocessor2/intellino_<0>x16/*.v \
+			../rtl/bus/*.v \
+			../rtl/bus/BootROM/bootrom.v \
+			../rtl/bus/Counter/counter_top.v \
+			../rtl/bus/RAM/*.v \
+			../rtl/bus/UART/*.v \
+			../rtl/bus/VMA/*.v
+OPTIONS = --cc --exe -x-assign fast -Wall -j 8 \
+		  --timescale 1ns/1ns \
+		  --threads 4 \
+		  --trace \
+#		  --assert \
+		  --coverage
+
+default: all
+all: sim_main.cpp makefile
+	@echo 
+	@echo "-- Verilator simulation for mips_intellino"
+	
+	@echo "-- VERILATE ----------------"
+	verilator $(OPTIONS) $(RTL_FILES) $(CONFIG_FILE) sim_main.cpp
+
+	@echo
+	@echo "-- BUILD -------------------"
+	@make -j -C obj_dir -f Vtop.mk
+
+	@echo
+	@echo "-- RUN ---------------------"
+	@rm -rf logs
+	@mkdir -p logs
+	@numactl obj_dir/Vtop +trace
+
+	@echo
+	@echo "-- DONE --------------------"
+	@echo "Open log/wave.vcd to visualize the waveform"
+	@echo
+
+clean:
+	rm -rf obj_dir logs *.log *.dmp *.vpd coverage.dat core

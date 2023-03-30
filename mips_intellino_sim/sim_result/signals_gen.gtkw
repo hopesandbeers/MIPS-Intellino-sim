@@ -1,0 +1,108 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Mar 29 13:28:19 2023
+[*]
+[dumpfile] "E:\mips_intellino\sim_result\wave_c256.vcd"
+[dumpfile_mtime] "Wed Mar 29 13:10:15 2023"
+[dumpfile_size] 1503154800
+[savefile] "E:\mips_intellino\sim_result\signals_gen.gtkw"
+[timestart] 19670
+[size] 2183 892
+[pos] -1 -1
+*-6.000000 19780 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top.
+[treeopen] TOP.top.U_CP2.
+[treeopen] TOP.top.U_CP2.U_INTELLINO.
+[treeopen] TOP.top.U_CP2.U_INTELLINO.U_NCELL_000.
+[treeopen] TOP.top.U_MIPS_TOP.
+[sst_width] 627
+[signals_width] 476
+[sst_expanded] 1
+[sst_vpaned_height] 483
+@28
+TOP.top.U_MIPS_TOP.U_DEC_STAGE_REG.clk
+TOP.top.U_MIPS_TOP.U_DEC_STAGE_REG.reset_n
+@22
+TOP.top.U_MIPS_TOP.U_DEC_STAGE_REG.dec_pc[31:0]
+TOP.top.U_MIPS_TOP.U_DEC_STAGE_REG.dec_instr[31:0]
+@28
+TOP.top.U_MIPS_TOP.U_MIPS_IF.istaken
+@200
+-Intellino
+@22
+TOP.top.U_CP2.U_INTELLINO.ra[4:0]
+TOP.top.U_CP2.U_INTELLINO.rd[31:0]
+TOP.top.U_CP2.U_INTELLINO.wa[4:0]
+TOP.top.U_CP2.U_INTELLINO.wd[31:0]
+@28
+TOP.top.U_CP2.U_INTELLINO.we
+@22
+TOP.top.U_CP2.U_INTELLINO.nid[4:0]
+@28
+TOP.top.U_CP2.U_INTELLINO.wen_forget
+TOP.top.U_CP2.U_INTELLINO.wen_clear
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_000
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_001
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_002
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_003
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_004
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_005
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_006
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_007
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_008
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_009
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_010
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_011
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_012
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_013
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_014
+TOP.top.U_CP2.U_INTELLINO.ncell_valid_015
+@22
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_000[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_001[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_002[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_003[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_004[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_005[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_006[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_007[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_008[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_009[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_010[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_011[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_012[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_013[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_014[7:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_cat_015[7:0]
+@23
+TOP.top.U_CP2.U_INTELLINO.U_NCELL_000.sub0_result[8:0]
+@28
+TOP.top.U_CP2.U_INTELLINO.comp_we
+@22
+TOP.top.U_CP2.U_INTELLINO.rd[31:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_000[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_001[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_002[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_003[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_004[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_005[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_006[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_007[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_008[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_009[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_010[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_011[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_012[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_013[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_014[15:0]
+TOP.top.U_CP2.U_INTELLINO.ncell_dist_015[15:0]
+TOP.top.U_CP2.U_INTELLINO.cat_result[7:0]
+TOP.top.U_CP2.U_INTELLINO.dist_result[15:0]
+@28
+TOP.top.U_CP2.U_INTELLINO.wen_lcomp_dly
+@22
+TOP.top.U_CP2.U_INTELLINO.cat[7:0]
+TOP.top.U_CP2.U_INTELLINO.distance[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

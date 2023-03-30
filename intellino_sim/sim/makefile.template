@@ -1,0 +1,37 @@
+CONFIG_FILE = config.vlt
+RTL_FILES = ../rtl/<0>x16/top_neuro.v \
+			../rtl/<0>x16/comp_mem_ram.v \
+			../rtl/<0>x16/ctrl/*.v \
+			../rtl/<0>x16/proc/*.v
+OPTIONS = --cc --exe -x-assign fast -Wall -j 8 \
+		  --timescale 1ns/1ns \
+		  --threads 4 \
+		  --trace
+#		  --assert \
+		  --coverage
+
+default: all
+all: sim_main.cpp makefile
+	@echo 
+	@echo "-- Verilator simulation for mips_intellino"
+	
+	@echo "-- VERILATE ----------------"
+	verilator $(OPTIONS) $(RTL_FILES) $(CONFIG_FILE) sim_main.cpp
+
+	@echo
+	@echo "-- BUILD -------------------"
+	@make -j -C obj_dir -f Vtop_neuro.mk
+
+	@echo
+	@echo "-- RUN ---------------------"
+	@rm -rf logs
+	@mkdir -p logs
+	@numactl obj_dir/Vtop_neuro +trace
+
+	@echo
+	@echo "-- DONE --------------------"
+	@echo "Open log/wave.vcd to visualize the waveform"
+	@echo
+
+clean:
+	rm -rf obj_dir logs *.log *.dmp *.vpd coverage.dat core

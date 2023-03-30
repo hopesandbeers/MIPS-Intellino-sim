@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Thu Mar 30 12:52:31 2023
+[*]
+[dumpfile] "E:\2023_ieee_access\intellino_sim_full\sim_result\wave_128.vcd"
+[dumpfile_mtime] "Thu Mar 30 12:52:01 2023"
+[dumpfile_size] 393517
+[savefile] "E:\2023_ieee_access\intellino_sim_full\sim_result\signals.gtkw"
+[timestart] 120714
+[size] 2047 1262
+[pos] -1 -1
+*-10.000000 126689 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.top_neuro.
+[treeopen] TOP.top_neuro.NEURO_PROC_TOP.
+[sst_width] 362
+[signals_width] 288
+[sst_expanded] 1
+[sst_vpaned_height] 385
+@28
+TOP.top_neuro.NEURO_CONTROLLER_TOP.clk
+TOP.reset_n
+TOP.sck
+TOP.mosi
+TOP.miso
+TOP.cs
+TOP.n_cell_full
+@22
+TOP.top_neuro.NEURO_PROC_TOP.NEUROMORPHIC.neuro_cat_0000[7:0]
+@28
+TOP.top_neuro.NEURO_PROC_TOP.NEUROMORPHIC.w_comp_en
+TOP.top_neuro.NEURO_PROC_TOP.NEUROMORPHIC.w_lcomp_en
+@22
+TOP.top_neuro.NEURO_PROC_TOP.NEUROMORPHIC.comp_ptr[6:0]
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0
