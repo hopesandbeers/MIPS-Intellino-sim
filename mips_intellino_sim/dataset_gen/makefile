@@ -30,4 +30,4 @@ $(GEN_SRC4):
 	cp dataset_mnist.c $(GEN_SRC4)
 
 clean:
-	rm $(TARGET)
+	rm -f $(TARGET)

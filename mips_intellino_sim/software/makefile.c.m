@@ -25,7 +25,6 @@ $(BUILDDIR)/Instdata: startup.lds makefile $(OBJFILES)
 	cd $(BUILDDIR); ./bin2bytehex.pl compiled.bin compiled.hex
 	cd $(BUILDDIR); ./bin2hex.pl useg
 	cd $(BUILDDIR); ./bin2hex.pl kseg
-	cp -f $(BUILDDIR)/compiled.hex ../tb/compiled.hex
 $(OBJDIR)/startup.o: startup.s
 	$(CPP) $(CCFLAGS)	startup.s > startup.i
 	$(AS) $(ASFLAGS)	startup.i -o $(OBJDIR)/startup.o
