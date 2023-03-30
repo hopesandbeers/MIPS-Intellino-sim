@@ -70,7 +70,7 @@ The available settings are as follows:
 <b>[CFG]</b>
 > 128 <br> 256 <br> 512 <br> 1024 <br> 2048
 
-The simulation results are stored as *.vcd dump in sim_result directory.
+The simulation results are stored as *.vcd dump in <b>sim_result</b> directory.
 
 ### standalone Intellino processor simulation
 
@@ -84,4 +84,4 @@ The simulation of the standalone Intellino is simply executed by following codes
 make sim_[CFG]    # Perform simulation for certain configurations.
 ```
 
-The simulation results are stored as *.vcd dump in sim_result directory.
+The simulation results are stored as *.vcd dump in <b>sim_result</b> directory.
