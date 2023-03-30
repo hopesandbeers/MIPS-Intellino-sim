@@ -27,10 +27,11 @@ sim_2048:
 	mv sim/logs/wave.vcd sim_result/wave_2048.vcd
 
 clean:
-	make -C sim clean
 	# Remove generated sources
+	cp sim/makefile.template sim/makefile
+	make -C sim clean
 	rm -f sim/sim_main.cpp
 	rm -f sim/makefile
 	# Remove simulation result
-	rm sim_result/*.vcd
+	rm -f sim_result/*.vcd
 

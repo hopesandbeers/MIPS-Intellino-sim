@@ -110,12 +110,15 @@ clean:
 	rm -f dataset_gen/dataset_mnist.c
 	rm -rf dataset_gen/mnist_data
 	# Remove generated source codes
+	cp software/makefile.c.m software/makefile
 	make -C software clean
+	rm -f software/makefile
 	rm -f software/dataset_mnist.c
 	rm -f software/intellino.c
 	rm -f software/include/intellino_as.h
 	rm -f software/main.c
 	# Remove simulation makefile
+	cp sim/makefile.template sim/makefile
 	make -C sim clean
 	rm -f sim/makefile
 	# Remove simulation result
