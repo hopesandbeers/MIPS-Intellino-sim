@@ -51,7 +51,7 @@ pip3 install numpy opencv-python torchvision matplotlib
 deactivate
 cd ..
 ```
-#### Perform MIPS-Intellino simulation for both C library and optimizzed assembly codes.
+#### Perform MIPS-Intellino simulation for both C library and optimized assembly codes.
 
 The compilation, build, and simulation can be executed by the <b>Makefile</b> in the <b>mips_intellino_sim</b> directory.
 
