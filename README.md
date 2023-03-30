@@ -1,4 +1,4 @@
-# Simulation environment for MIPS-Intellino and standalone Intellino
+# Simulation Env. for the MIPS-Intellino and the original Intellino
 This repository is for providing the benchmark codes for the simulation of the MIPS-Intellino processor and standalone Intellino AI processor.
 
 Note: The HDL codes of the MIPS-Intellino processor and the standalone Intellino AI processor are not provided.
